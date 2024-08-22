@@ -1,0 +1,20 @@
+/* Add this style for the clear button */
+.clear-input {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Style for the dollar sign */
+.input-group-prepend .input-group-text {
+    background-color: #f8f9fa; /* Change this color if needed */
+    color: #495057; /* Change this color if needed */
+    border: 1px solid #ced4da; /* Change this color if needed */
+}
+
+/* Hover effect for the clear button */
+.clear-input:hover {
+    color: red; /* Change this color if needed */
+}
