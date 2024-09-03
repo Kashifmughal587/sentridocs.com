@@ -53,21 +53,21 @@
     <title>Lead Generation Form</title>
     <?php 
         if(!empty($company_details['company_fav'])) {
-            echo '<link rel="shortcut icon" href="/'.$company_details['company_fav'].'" type="image/x-icon">"';
+            echo '<link rel="shortcut icon" href="../'.$company_details['company_fav'].'" type="image/x-icon">"';
         }else{
-            echo '<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">"';
+            echo '<link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">"';
         }
     ?>
     <link rel="shortcut icon" href="'$com'" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/css/intlTelInput.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/custom.css">
-    <link rel="stylesheet" href="/assets/css/demo.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="../assets/css/demo.css">
     
     <style>
         .social-icon {
@@ -94,9 +94,9 @@
                 <header class="intro">
                     <?php 
                         if(!empty($company_details['company_logo'])) {
-                            echo '<img src="/'.$company_details['company_logo'].'" alt="Company Logo" style="max-width: 200px;">';
+                            echo '<img src="../'.$company_details['company_logo'].'" alt="Company Logo" style="max-width: 200px;">';
                         } else {
-                            echo '<img src="/assets/img/logo-dark.png" alt="Company Logo" style="max-width: 200px;">';
+                            echo '<img src="../assets/img/logo-dark.png" alt="Company Logo" style="max-width: 200px;">';
                         }
                     ?>
                 </header>
@@ -115,9 +115,9 @@
                             <div class="col-md-4 text-center">
                                 <?php 
                                     if(!empty($officer_details['profile_photo'])) {
-                                        echo '<img src="/'.$officer_details['profile_photo'].'" alt="Officer Profile" style="max-width: 200px; max-height: 300px">';
+                                        echo '<img src="../'.$officer_details['profile_photo'].'" alt="Officer Profile" style="max-width: 200px; max-height: 300px">';
                                     } else {
-                                        echo '<img src="/assets/img/user.png" alt="Officer Profile" style="max-width: 200px;">';
+                                        echo '<img src="../assets/img/user.png" alt="Officer Profile" style="max-width: 200px;">';
                                     }
                                 ?>
                             </div>
@@ -283,7 +283,7 @@
                                         <a href="<?php if (strpos($officer_details['twitter_link'], 'http://') !== 0 && strpos($officer_details['twitter_link'], 'https://') !== 0) {
                                                 $officer_details['twitter_link'] = 'https://' . $officer_details['twitter_link']; 
                                             }echo $officer_details['twitter_link']; ?>"  class="social-icon">
-                                            <i class="fab fa-twitter"></i>
+                                            <i class="fa fa-twitter"></i>
                                         </a>
                                     </div>
                                 <?php endif;

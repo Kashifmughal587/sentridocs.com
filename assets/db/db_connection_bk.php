@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "lead_generation_form";
+$username = "lowratez_lead_generator";
+$password = "yQydCd!w@yxd";
+$dbname = "lowratez_lead_generation_form";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
