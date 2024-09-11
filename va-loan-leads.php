@@ -965,9 +965,9 @@
 							</h1>
 						</div>
 						<div class="form-group-input mb-5">
-							<input type="email" id="email" name="email" class="form-control" autocomplete="off"
+							<input type="email" id="email_address" name="email_address" class="form-control" autocomplete="off"
 								data-auto-focus="true" required="">
-							<label for="email" class="input-label">Email Address</label>
+							<label for="email_address" class="input-label">Email Address</label>
 						</div>
 						<button type="button" class="btn ah-cta-btn previous"
 							style="font-size: 20px; font-weight: 800 !important; font-style: normal !important; color: rgb(255, 255, 255) !important; border-color: rgb(255, 130, 1) !important; border-width: 1px !important; background: rgb(255, 130, 1) !important; border-radius: 36px !important; box-shadow: rgba(0, 0, 0, 0.2) 0px 16px 13px -10px !important;margin: 0 5px;">Back</button>

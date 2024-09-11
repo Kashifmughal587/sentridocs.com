@@ -2,10 +2,35 @@
 
     include 'include.php';
 
-    if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    if (isset($_GET['form_type']) && isset($_GET['id']) && is_numeric($_GET['id'])) {
         $entry_id = $_GET['id'];
     
-        $sql = "SELECT * FROM mortgage_leads WHERE id = $entry_id";
+        $form_type = $_GET['form_type'];
+        switch($form_type){
+            case "refinance":
+                $sql = "SELECT * FROM mortgage_leads WHERE id = $entry_id";
+                break;
+            case "va-loan-leads":
+                $sql = "SELECT * FROM va_loan_eligibility WHERE id = $entry_id";
+                break;
+            case "real-estate-lead-generation":
+                $sql = "SELECT * FROM real_estate_lead WHERE id = $entry_id";
+                break;
+            // case "va-loan-leads":
+            //     $sql = "SELECT * FROM va_loan_eligibility WHERE company_id = $companyID";
+            //     break;
+            // case "refinance":
+            //     $sql = "SELECT * FROM mortgage_leads WHERE company_id = $companyID";
+            //     break;
+            // case "va-loan-leads":
+            //     $sql = "SELECT * FROM va_loan_eligibility WHERE company_id = $companyID";
+            //     break;
+            default:
+                echo '<script>alert("No Record Found!");</script>';
+                echo '<script>window.location.href = "profile.php";</script>';
+                exit();
+        }
+        // $sql = "SELECT * FROM mortgage_leads WHERE id = $entry_id";
         $result = $conn->query($sql);
     
         if ($result->num_rows > 0) {

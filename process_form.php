@@ -40,7 +40,6 @@
             $columns = implode(", ", array_keys($data));
             $values = "'" . implode("', '", $data) . "'";
 
-            return;
             switch($form_type){
                 case "refinance":
                     $sql = "INSERT INTO mortgage_leads ($columns) VALUES ($values)";
@@ -68,6 +67,9 @@
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            
+
 
             switch($_POST['form_type']){
                 case 'refinance':
@@ -156,7 +158,7 @@
                 case 'va-loan-leads':
 
                     $full_name              = sanitizeInput($_POST['full_name']);
-                    $email                  = sanitizeInput($_POST['email']);
+                    $email_address                  = sanitizeInput($_POST['email_address']);
                     $phone_number           = sanitizeInput($_POST['phone_number']);
 
                     $companySlug                = sanitizeInput($_POST['companySlug']);
@@ -213,7 +215,7 @@
                 
                     $formData = [
                         'full_name'                 => $full_name,
-                        'email'                     => $email,
+                        'email_address'                     => $email_address,
                         'phone_number'              => $phone_number,
                         'loan_goal'                 => $loan_goal,
                         'branch_of_service'         => $branch_of_service,

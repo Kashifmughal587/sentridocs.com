@@ -4,16 +4,48 @@
 
     $user_id = $_SESSION['user_id'];
 
-    $sql = "SELECT * FROM companies WHERE user_id = '$user_id'";
-    $result1 = $conn->query($sql);
-    $company_details = $result1->fetch_assoc();
-    if($company_details > 0) {
-        $companyID = $company_details['id'];
-        $sql = "SELECT * FROM mortgage_leads WHERE company_id = $companyID";
-        $result = $conn->query($sql);
+    if (isset($_GET['form_type'])) {
+        $sql = "SELECT * FROM companies WHERE user_id = '$user_id'";
+        $result1 = $conn->query($sql);
+        $company_details = $result1->fetch_assoc();
+        if($company_details > 0) {
+            $companyID = $company_details['id'];
+            
+                $form_type = $_GET['form_type'];
+                switch($form_type){
+                    case "refinance":
+                        $sql = "SELECT * FROM mortgage_leads WHERE company_id = $companyID";
+                        break;
+                    case "va-loan-leads":
+                        $sql = "SELECT * FROM va_loan_eligibility WHERE company_id = $companyID";
+                        break;
+                    case "real-estate-lead-generation":
+                        $sql = "SELECT * FROM real_estate_lead WHERE company_id = $companyID";
+                        break;
+                    // case "va-loan-leads":
+                    //     $sql = "SELECT * FROM va_loan_eligibility WHERE company_id = $companyID";
+                    //     break;
+                    // case "refinance":
+                    //     $sql = "SELECT * FROM mortgage_leads WHERE company_id = $companyID";
+                    //     break;
+                    // case "va-loan-leads":
+                    //     $sql = "SELECT * FROM va_loan_eligibility WHERE company_id = $companyID";
+                    //     break;
+                    default:
+                        echo '<script>alert("No Record Found!");</script>';
+                        echo '<script>window.location.href = "profile.php";</script>';
+                        exit();
+                }
+            // $sql = "SELECT * FROM mortgage_leads WHERE company_id = $companyID";
+            $result = $conn->query($sql);
+        }else{
+            echo '<script>alert("No Record Found!");</script>';
+            echo '<script>window.location.href = "profile.php";</script>';
+            exit();
+        }
     }else{
-        echo '<script>alert("No Record Found!");</script>';
-        echo '<script>window.location.href = "profile.php";</script>';
+        echo '<script>alert("Select Form from Company Page");</script>';
+        echo '<script>window.location.href = "company.php";</script>';
         exit();
     }
     
@@ -56,7 +88,7 @@
                                                     <td>{$row['full_name']}</td>
                                                     <td>{$row['email_address']}</td>
                                                     <td>
-                                                        <a href='entries.php?id={$row['id']}' class='btn btn-info'>View</a>
+                                                        <a href='entries.php?id={$row['id']}&form_type={$form_type}' class='btn btn-info'>View</a>
                                                         <form method='post' style='display:inline;'>
                                                             <input type='hidden' name='delete_entry' value='{$row['id']}'>
                                                             <button class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete this entry?\")'>Delete</button>

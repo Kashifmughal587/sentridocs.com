@@ -128,23 +128,26 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Refinance Page URL</div>
-                                        <div class="col-lg-9 col-md-8"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/refinance.php'?></div>
+                                        <div class="col-lg-3 col-md-2 label">Refinance Page URL</div>
+                                        <div class="col-lg-6 col-md-6"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/refinance.php'?></div>
+                                        <div class="col-lg-3 col-md-4"><a href="form.php?form_type=refinance">Entries</a></div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">VA Load Leads Page URL</div>
-                                        <div class="col-lg-9 col-md-8"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/va-loan-leads.php'?></div>
+                                        <div class="col-lg-3 col-md-2 label">VA Load Leads Page URL</div>
+                                        <div class="col-lg-6 col-md-6"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/va-loan-leads.php'?></div>
+                                        <div class="col-lg-3 col-md-4"><a href="form.php?form_type=va-loan-leads">Entries</a></div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Real Estate Lead Generation Page URL</div>
-                                        <div class="col-lg-9 col-md-8"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/real-estate-lead-generation.php'?></div>
+                                        <div class="col-lg-3 col-md-2 label">Real Estate Lead Generation Page URL</div>
+                                        <div class="col-lg-6 col-md-6"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/real-estate-lead-generation.php'?></div>
+                                        <div class="col-lg-3 col-md-4"><a href="form.php?form_type=real-estate-lead-generation">Entries</a></div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Commercial Loan Leads Page URL</div>
-                                        <div class="col-lg-9 col-md-8"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/commerical-loan-leads.php'?></div>
+                                        <div class="col-lg-3 col-md-2 label">Commercial Loan Leads Page URL</div>
+                                        <div class="col-lg-6 col-md-6"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/commerical-loan-leads.php'?></div>
                                     </div>
 
                                     <div class="row">

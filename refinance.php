@@ -27,9 +27,9 @@
     <title>Lead Generation Form</title>
     <?php 
         if(!empty($company_details['company_fav'])) {
-            echo '<link rel="shortcut icon" href="/'.$company_details['company_fav'].'" type="image/x-icon">"';
+            echo '<link rel="shortcut icon" href="../'.$company_details['company_fav'].'" type="image/x-icon">"';
         }else{
-            echo '<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">"';
+            echo '<link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">"';
         }
     ?>
     <link rel="shortcut icon" href="'$com'" type="image/x-icon">
@@ -54,9 +54,9 @@
                     <header class="intro">
                         <?php 
                             if(!empty($company_details['company_logo'])) {
-                                echo '<img src="'.$company_details['company_logo'].'" alt="Company Logo" style="max-width: 200px;">';
+                                echo '<img src="../'.$company_details['company_logo'].'" alt="Company Logo" style="max-width: 200px;">';
                             } else {
-                                echo '<img src="assets/img/logo-dark.png" alt="Company Logo" style="max-width: 200px;">';
+                                echo '<img src="../assets/img/logo-dark.png" alt="Company Logo" style="max-width: 200px;">';
                             }
                         ?>
                     </header>
