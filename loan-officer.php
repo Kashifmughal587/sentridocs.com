@@ -313,9 +313,9 @@
                     <hr>
                     <?php 
                         if(!empty($company_details['company_logo'])) {
-                            echo '<img src="/'.$company_details['company_logo'].'" alt="Company Logo" style="max-width: 200px;">';
+                            echo '<img src="../'.$company_details['company_logo'].'" alt="Company Logo" style="max-width: 200px;">';
                         } else {
-                            echo '<img src="/assets/img/logo-dark.png" alt="Company Logo" style="max-width: 200px;">';
+                            echo '<img src="../assets/img/logo-dark.png" alt="Company Logo" style="max-width: 200px;">';
                         }
                     ?>
                     <br>

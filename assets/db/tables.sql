@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS va_loan_eligibility (
     branch_of_service VARCHAR(255), -- Stores the branch of service selected by the user
     reason VARCHAR(255),
     service_type VARCHAR(255), -- Stores the selected military service type
-    price_range INT, -- Stores the minimum value of the price range
+    price_range VARCHAR(255), -- Stores the minimum value of the price range
     property_type VARCHAR(255), -- Stores the selected property type
     usage_type VARCHAR(255), -- Stores the selected usage type
     purchase_timing VARCHAR(255), -- Stores the selected timing for the purchase
@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS va_loan_eligibility (
     filed_for_bankruptcy ENUM('Yes', 'No'), -- Added filed for bankruptcy status
     home_location VARCHAR(255), -- Added home location (city or ZIP code)
     full_name VARCHAR(255), -- Added full name
-    email VARCHAR(255), -- Added email address
+    email_address VARCHAR(255), -- Added email address
     phone_number VARCHAR(20), -- Added phone number
     lead_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     company_id INT NOT NULL
@@ -181,3 +181,131 @@ CREATE TABLE IF NOT EXISTS real_estate_lead (
     company_id INT NOT NULL -- Associates the entry with a specific company
 );
 
+CREATE TABLE IF NOT EXISTS commercial_loan_leads (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    city_zip VARCHAR(50) NOT NULL,
+    property_type VARCHAR(100) NOT NULL,
+    property_location VARCHAR(100) NOT NULL,
+    leased_or_occupied VARCHAR(150) NOT NULL,
+    estimated_value INT NOT NULL,
+    desired_loan_amount INT NOT NULL,
+    purpose_of_loan VARCHAR(255) NOT NULL,
+    loan_type VARCHAR(150) NOT NULL,
+    loan_duration VARCHAR(200) NOT NULL,
+    total_down_payment VARCHAR(100) NOT NULL,
+    receive_loan_in VARCHAR(100) NOT NULL,
+    property_owner VARCHAR(200) NOT NULL,
+    any_co_debitor ENUM('Yes','No') NOT NULL DEFAULT 'No',
+    primary_borrower_state VARCHAR(100) NOT NULL,
+    primary_borrower_credit_score VARCHAR(200) NOT NULL,
+    primary_borrower_assets VARCHAR(500) NOT NULL,
+    primary_borrower_docs VARCHAR(100) NOT NULL,
+    other_docs VARCHAR(500) NOT NULL,
+    full_name VARCHAR(150) NOT NULL,
+    email_address VARCHAR(150) NOT NULL,
+    phone_number VARCHAR(50) NOT NULL,
+    company_id INT NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS loan_leads (
+  Id INT AUTO_INCREMENT PRIMARY KEY,
+  form_type VARCHAR(100) NOT NULL,
+  home_type VARCHAR(150) NOT NULL,
+  current_process VARCHAR(200) NOT NULL,
+  spendings_on_home VARCHAR(150) NOT NULL,
+  use_of_home VARCHAR(100) NOT NULL,
+  is_first_time_purchase ENUM('Yes','No') NOT NULL DEFAULT 'Yes',
+  purchasing_plane VARCHAR(100) NOT NULL,
+  issue_in_buying VARCHAR(100) NOT NULL,
+  ever_served_US_millitary VARCHAR(100) NOT NULL,
+  down_payment VARCHAR(50) NOT NULL,
+  current_savings VARCHAR(100) NOT NULL,
+  employment_status VARCHAR(255) NOT NULL,
+  gross_annual_income VARCHAR(100) NOT NULL,
+  bankruptcy_shortsale ENUM('Yes','No') NOT NULL DEFAULT 'No',
+  credit_score VARCHAR(100) NOT NULL,
+  working_with_agent ENUM('Yes','No') NOT NULL DEFAULT 'Yes',
+  property_location VARCHAR(50) NOT NULL,
+  current_location VARCHAR(50) NOT NULL,
+  full_name VARCHAR(150) NOT NULL,
+  email_address VARCHAR(150) NOT NULL,
+  phone_number VARCHAR(50) NOT NULL,
+  company_id INT NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS mortage_lead_generation (
+  id int AUTO_INCREMENT PRIMARY KEY,
+  home_type varchar(150) NOT NULL,
+  loan_type varchar(150) NOT NULL,
+  refinance_goal varchar(255) NOT NULL,
+  home_value varchar(255) NOT NULL,
+  curr_loan_balance varchar(255) NOT NULL,
+  interest_rate varchar(200) NOT NULL,
+  curr_home_type varchar(255) NOT NULL,
+  home_use varchar(255) NOT NULL,
+  millitary_service varchar(200) NOT NULL,
+  institute_active_account varchar(255) NOT NULL,
+  employment_status varchar(200) NOT NULL,
+  gross_income varchar(200) NOT NULL,
+  bankruptcy_shortsale varchar(255) NOT NULL,
+  curr_purchase_process varchar(255) NOT NULL,
+  spending_plan varchar(255) NOT NULL,
+  home_type_looking_for varchar(200) NOT NULL,
+  home_use_looking varchar(255) NOT NULL,
+  first_time_purchase varchar(150) NOT NULL,
+  purchase_plane varchar(200) NOT NULL,
+  issue_in_buying varchar(255) NOT NULL,
+  down_payment varchar(200) NOT NULL,
+  curr_savings varchar(255) NOT NULL,
+  additional_cash int NOT NULL,
+  street_address varchar(255) NOT NULL,
+  curr_zipcode varchar(50) NOT NULL,
+  full_name varchar(150) NOT NULL,
+  email_address varchar(150) NOT NULL,
+  phone_number varchar(50) NOT NULL,
+  company_id INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS dscr (
+  id int AUTO_INCREMENT PRIMARY KEY,
+  loan_type varchar(100) NOT NULL,
+  occupation varchar(150) NOT NULL,
+  property_type varchar(200) NOT NULL,
+  property_value varchar(150) NOT NULL,
+  loan_amount varchar(150) NOT NULL,
+  is_owner varchar(200) NOT NULL,
+  loan_position varchar(255) NOT NULL,
+  closing_plane varchar(200) NOT NULL,
+  millitary_service varchar(150) NOT NULL,
+  millitary_branch varchar(200) NOT NULL,
+  employement_status varchar(255) NOT NULL,
+  gross_income varchar(200) NOT NULL,
+  bankruptcy_shortsale varchar(100) NOT NULL,
+  credit_score varchar(200) NOT NULL,
+  working_with_agent varchar(100) NOT NULL,
+  property_zipcode varchar(50) NOT NULL,
+  curr_zipcode varchar(50) NOT NULL,
+  full_name varchar(150) NOT NULL,
+  email_address varchar(200) NOT NULL,
+  phone_number varchar(100) NOT NULL,
+  company_id INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS reverse_mortage (
+  id int AUTO_INCREMENT PRIMARY KEY,
+  zipcode varchar(50) NOT NULL,
+  curr_purchase_process varchar(255) NOT NULL,
+  property_type varchar(255) NOT NULL,
+  property_keep_duration varchar(150) NOT NULL,
+  property_value int NOT NULL,
+  curr_mortage_balance varchar(255) NOT NULL,
+  reverse_for varchar(200) NOT NULL,
+  first_time_purchase varchar(150) NOT NULL,
+  age int NOT NULL,
+  full_name varchar(150) NOT NULL,
+  email_address varchar(150) NOT NULL,
+  phone_number varchar(50) NOT NULL,
+  company_id INT NOT NULL
+);

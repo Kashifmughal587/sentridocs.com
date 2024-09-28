@@ -147,17 +147,38 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-2 label">Commercial Loan Leads Page URL</div>
-                                        <div class="col-lg-6 col-md-6"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/commerical-loan-leads.php'?></div>
+                                        <div class="col-lg-6 col-md-6"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/commercial-loan-leads.php'?></div>
+                                        <div class="col-lg-3 col-md-4"><a href="form.php?form_type=commercial-loan-leads">Entries</a></div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">FHA Loan Leads Page URL</div>
-                                        <div class="col-lg-9 col-md-8"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/fha-loan-leads.php'?></div>
+                                        <div class="col-lg-3 col-md-2 label">FHA Loan Leads Page URL</div>
+                                        <div class="col-lg-6 col-md-6"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/fha-loan-leads.php'?></div>
+                                        <div class="col-lg-3 col-md-4"><a href="form.php?form_type=fha-loan-leads">Entries</a></div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Jumbo Loan Leads Page URL</div>
-                                        <div class="col-lg-9 col-md-8"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/jumbo-loan-leads.php'?></div>
+                                        <div class="col-lg-3 col-md-2 label">Jumbo Loan Leads Page URL</div>
+                                        <div class="col-lg-6 col-md-6"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/jumbo-loan-leads.php'?></div>
+                                        <div class="col-lg-3 col-md-4"><a href="form.php?form_type=jumbo-loan-leads">Entries</a></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-2 label">DSCR Loan Leads Page URL</div>
+                                        <div class="col-lg-6 col-md-6"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/dscr.php'?></div>
+                                        <div class="col-lg-3 col-md-4"><a href="form.php?form_type=dscr">Entries</a></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-2 label">Reverse Mortage Leads Page URL</div>
+                                        <div class="col-lg-6 col-md-6"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/reverse_mortgage.php'?></div>
+                                        <div class="col-lg-3 col-md-4"><a href="form.php?form_type=reverse_mortgage">Entries</a></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-2 label">VA Loan Purchase Leads Page URL</div>
+                                        <div class="col-lg-6 col-md-6"><?php echo 'https://sentridocs.com/'.$company_details['company_slug'],'/va-loan-purchase-leads.php'?></div>
+                                        <div class="col-lg-3 col-md-4"><a href="form.php?form_type=va-loan-purchase-leads">Entries</a></div>
                                     </div>
 
                                 </div>

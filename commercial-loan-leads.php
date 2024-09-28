@@ -25,7 +25,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Commercial Loan Leads</title>
+    <?php 
+        if(!empty($company_details['company_fav'])) {
+            echo '<link rel="shortcut icon" href="../'.$company_details['company_fav'].'" type="image/x-icon">"';
+        }else{
+            echo '<link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">"';
+        }
+    ?>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
@@ -46,21 +53,33 @@
     <div>
         <main>
             <section class="funnel-box-section-02">
-                <form class="funnel-box-02" style="text-align: center;">
+                <form class="funnel-box-02" style="text-align: center;" id="cllform" action="../process_form.php" method="POST">
+                    <input type="hidden" name="companyID" value="<?php echo isset($company_details['id']) ? $company_details['id'] : 'sentridocs'; ?>">
+                    <input type="hidden" name="companySlug" value="<?php echo isset($company_details['company_slug']) ? $company_details['company_slug'] : 'sentridocs'; ?>">
+                    <input type="hidden" name="form_type" value="commercial-loan-leads">
                     <header class="funnel-box-header-02">
                         <div class="header__logo">
-                            <img class="logo_img"
-                                src="https://images.lp-images1.com/images1/1/17344//logos/17344_315_1_9_120_126_138_1_crushmortgagelogocolors.png"
-                                alt="rebel IQ">
+                            <?php 
+                                if(!empty($company_details['company_logo'])) {
+                                    echo '<img class="logo_img" src="../'.$company_details['company_logo'].'" alt="Company Logo" style="max-width: 200px;">';
+                                } else {
+                                    echo '<img class="logo_img" src="../assets/img/logo-dark.png" alt="Company Logo" style="max-width: 200px;">';
+                                }
+                            ?>
                         </div>
                         <div class="funnel-box-header__info">
                             <span class="contact-number ">
-                                <span class="cta-phone-number"
-                                    style="font-family: Montserrat;font-style: normal;font-size: 16px; font-weight: 800;color: #000;">
+                                <?php
+                                    if(!empty($company_details['company_contact']))
+                                    {    
+                                ?>
+                                    <span class="cta-phone-number"
+                                        style="font-family: Montserrat;font-style: normal;font-size: 16px; font-weight: 800;color: #000;">
                                     Call Today! </span>
-                                <a class="phone-number" href="tel:+18555323767"
-                                    style="font-family: Montserrat;font-size: 16px; font-weight: 800;color: #008CFF;">
-                                    (855) 532-3767 </a>
+                                <?php
+                                    echo '<a class="phone-number" href="tel:"'. $company_details['company_contact'] .' style="font-family: Montserrat;font-style: normal;font-size: 16px; font-weight: 800;color: #008CFF;">'.$company_details['company_contact'].'</a>';
+                                    }
+                                ?>
                             </span>
                         </div>
                     </header>
@@ -86,7 +105,6 @@
                                 <label for="zipcode_32" class="input-label ">CITY OR ZIP CODE</label>
                             </div>
                         </div>
-                        <button type="button" class="btn ah-cta-btn previous" style="font-size: 20px;pointer-events: auto;font-weight: 400 !important;font-style: normal !important;font-family: Montserrat !important;color: rgb(255, 255, 255) !important;border-color: rgb(37, 219, 128) !important;border-width: 1px !important;background: rgb(37, 219, 128) !important;border-radius: 36px !important;box-shadow: rgba(0, 0, 0, 0.2) 0px 26px 13px -10px !important;">Back</button>
                         <button type="button" class="btn ah-cta-btn next" style="font-size: 20px;pointer-events: auto;font-weight: 400 !important;font-style: normal !important;font-family: Montserrat !important;color: rgb(255, 255, 255) !important;border-color: rgb(37, 219, 128) !important;border-width: 1px !important;background: rgb(37, 219, 128) !important;border-radius: 36px !important;box-shadow: rgba(0, 0, 0, 0.2) 0px 26px 13px -10px !important;">Get Started</button>
                     </fieldset>
                     <fieldset class="funnel-content-section-02">
@@ -96,7 +114,7 @@
                         <div class="checkbox-list-holder mb-4">
                             <div class="form-group-select v2 mb-5">
                                 <label for="zipcode_32" class="input-label">SELECT AN OPTION</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" name="property_type" aria-label="Default select example">
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
@@ -113,7 +131,7 @@
                         <div class="checkbox-list-holder mb-4">
                             <div class="form-group-select v2 mb-5">
                                 <label for="zipcode_32" class="input-label">SELECT THE STATE</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" name="property_location" aria-label="Default select example">
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
@@ -146,7 +164,7 @@
                             </div>
                             <div class="form-group question__fields text-center">
                                 <input id="tenants-03" class="form-field" required="" type="radio" name="menu_01"
-                                    value="I'm not sure">
+                                    value="I am not sure">
                                 <label for="tenants-03" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
                                     <span>I'm not sure</span>
@@ -168,7 +186,7 @@
                             <div class="cash_wrapper_number v2 mb-5 text-center">0 to <span
                                     class="cash_wrapper_value v2 mb-5 text-center">0</span></div>
                             <div class="cash_range mb-4">
-                                <input type="range" min="0" max="1000000" value="0" id="cash_range" class="v2" />
+                                <input type="range" min="0" max="1000000" value="0" id="cash_range" class="v2" name="estimated_value" />
                             </div>
                             <div class="d-flex justify-content-between number-slider v2">
                                 <span>0</span>
@@ -190,7 +208,7 @@
                             <div class="cash_wrapper_number v2 mb-5 text-center">0 to <span
                                     class="cash_wrapper_value v2 mb-5 text-center">0</span></div>
                             <div class="cash_range mb-4">
-                                <input type="range" min="0" max="1000000" value="0" id="cash_range" class="v2" />
+                                <input type="range" min="0" max="1000000" value="0" id="cash_range" name="loan_amount" class="v2" />
                             </div>
                             <div class="d-flex justify-content-between number-slider v2">
                                 <span>0</span>
@@ -312,10 +330,10 @@
                             </div>
                             <div class="form-group question__fields text-center">
                                 <input id="type-loan-06" class="form-field" required="" type="radio" name="menu_03"
-                                    value="I'm not sure or I'd like to discuss my options">
+                                    value="I am not sure or I'd like to discuss my options">
                                 <label for="type-loan-06" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
-                                    <span>I'm not sure or I'd like to discuss my options</span>
+                                    <span>I am not sure or I did like to discuss my options</span>
                                 </label>
                             </div>
                         </div>
@@ -369,7 +387,7 @@
                             </div>
                             <div class="form-group question__fields text-center">
                                 <input id="loan-length-06" class="form-field" required="" type="radio" name="menu_04"
-                                    value="I'm not sure or I'd like to discuss my options">
+                                    value="I am not sure or I'd like to discuss my options">
                                 <label for="loan-length-06" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
                                     <span>I'm not sure or I'd like to discuss my options</span>
@@ -434,7 +452,7 @@
                             </div>
                             <div class="form-group question__fields text-center">
                                 <input id="loan-downpayment-06" class="form-field" required="" type="radio" name="menu_05"
-                                    value="I'm not sure or I'd like to discuss my options">
+                                    value="I am not sure or I'd like to discuss my options">
                                 <label for="loan-downpayment-06" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
                                     <span>I'm not sure or I'd like to discuss my options</span>
@@ -598,7 +616,7 @@
                         <div class="checkbox-list-holder mb-4">
                             <div class="form-group-select v2 mb-5">
                                 <label for="zipcode_32" class="input-label">STATE BORROER LIVES</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" name="primary_borrower_loc" aria-label="Default select example">
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
@@ -618,7 +636,7 @@
                         </div>
                         <div class="checkbox-list-holder mb-4">
                             <div class="form-group question__fields text-center">
-                                <input id="collateral-01" class="form-field" required="" type="checkbox" name="menu_09"
+                                <input id="collateral-01" class="form-field" type="checkbox" name="menu_09"
                                     value="No personal asset">
                                 <label for="collateral-01" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
@@ -626,7 +644,7 @@
                                 </label>
                             </div>
                             <div class="form-group question__fields text-center">
-                                <input id="collateral-02" class="form-field" required="" type="checkbox" name="menu_09"
+                                <input id="collateral-02" class="form-field" type="checkbox" name="menu_09"
                                     value="Personal residence(s) or other property">
                                 <label for="collateral-02" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
@@ -634,7 +652,7 @@
                                 </label>
                             </div>
                             <div class="form-group question__fields text-center">
-                                <input id="collateral-03" class="form-field" required="" type="checkbox" name="menu_09"
+                                <input id="collateral-03" class="form-field" type="checkbox" name="menu_09"
                                     value="Cash">
                                 <label for="collateral-03" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
@@ -642,7 +660,7 @@
                                 </label>
                             </div>
                             <div class="form-group question__fields text-center">
-                                <input id="collateral-04" class="form-field" required="" type="checkbox" name="menu_09"
+                                <input id="collateral-04" class="form-field" type="checkbox" name="menu_09"
                                     value="Inventory">
                                 <label for="collateral-04" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
@@ -650,7 +668,7 @@
                                 </label>
                             </div>
                             <div class="form-group question__fields text-center">
-                                <input id="collateral-05" class="form-field" required="" type="checkbox" name="menu_09"
+                                <input id="collateral-05" class="form-field" type="checkbox" name="menu_09"
                                     value="Heirlooms or collectibles">
                                 <label for="collateral-05" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
@@ -658,7 +676,7 @@
                                 </label>
                             </div>
                             <div class="form-group question__fields text-center">
-                                <input id="collateral-06" class="form-field" required="" type="checkbox" name="menu_09"
+                                <input id="collateral-06" class="form-field" type="checkbox" name="menu_09"
                                     value="Other">
                                 <label for="collateral-06" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
@@ -679,7 +697,7 @@
                         </div>
                         <div class="checkbox-list-holder mb-4">
                             <div class="form-group question__fields text-center">
-                                <input id="credit-score-01" class="form-field" required="" type="radio" name="menu_09"
+                                <input id="credit-score-01" class="form-field" required="" type="radio" name="menu_10"
                                     value="Excellent (720+)">
                                 <label for="credit-score-01" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
@@ -687,7 +705,7 @@
                                 </label>
                             </div>
                             <div class="form-group question__fields text-center">
-                                <input id="credit-score-02" class="form-field" required="" type="radio" name="menu_09"
+                                <input id="credit-score-02" class="form-field" required="" type="radio" name="menu_10"
                                     value="Good (680-719)">
                                 <label for="credit-score-02" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
@@ -695,7 +713,7 @@
                                 </label>
                             </div>
                             <div class="form-group question__fields text-center">
-                                <input id="credit-score-03" class="form-field" required="" type="radio" name="menu_09"
+                                <input id="credit-score-03" class="form-field" required="" type="radio" name="menu_10"
                                     value="Fair (660-679)">
                                 <label for="credit-score-03" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
@@ -703,7 +721,7 @@
                                 </label>
                             </div>
                             <div class="form-group question__fields text-center">
-                                <input id="credit-score-04" class="form-field" required="" type="radio" name="menu_09"
+                                <input id="credit-score-04" class="form-field" required="" type="radio" name="menu_10"
                                     value="Below Average (620-659)">
                                 <label for="credit-score-04" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
@@ -711,7 +729,7 @@
                                 </label>
                             </div>
                             <div class="form-group question__fields text-center">
-                                <input id="credit-score-05" class="form-field" required="" type="radio" name="menu_09"
+                                <input id="credit-score-05" class="form-field" required="" type="radio" name="menu_10"
                                     value="Poor (580-619)">
                                 <label for="credit-score-05" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
@@ -719,7 +737,7 @@
                                 </label>
                             </div>
                             <div class="form-group question__fields text-center">
-                                <input id="credit-score-06" class="form-field" required="" type="radio" name="menu_09"
+                                <input id="credit-score-06" class="form-field" required="" type="radio" name="menu_10"
                                     value="Bad (below 580)">
                                 <label for="credit-score-06" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
@@ -736,7 +754,7 @@
                         </div>
                         <div class="checkbox-list-holder mb-4 flex-column align-items-center">
                             <div class="form-group question__fields text-center">
-                                <input id="borrower-loan-01" class="form-field" required="" type="radio" name="menu_10"
+                                <input id="borrower-loan-01" class="form-field" required="" type="radio" name="menu_11"
                                     value="Full documents (tax returns)">
                                 <label for="borrower-loan-01" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
@@ -744,7 +762,7 @@
                                 </label>
                             </div>
                             <div class="form-group question__fields text-center">
-                                <input id="borrower-loan-02" class="form-field" required="" type="radio" name="menu_10"
+                                <input id="borrower-loan-02" class="form-field" required="" type="radio" name="menu_11"
                                     value="Stated income (no tax returns)">
                                 <label for="borrower-loan-02" class="checkbox-button v2">
                                     <span class="fake-input border-0"></span>
@@ -765,7 +783,7 @@
                         </div>
                         <div class="checkbox-list-holder mb-4 flex-column align-items-center">
                             <div class="form-group-textarea v2 mb-5">
-                                <textarea class="form-control" required=""></textarea>
+                                <textarea class="form-control" name="other_docs" required=""></textarea>
                                 <label for="answer" class="input-label ">CITY OR ZIP CODE</label>
                             </div>
                         </div>
@@ -809,9 +827,9 @@
                         </div>
                         <div class="checkbox-list-holder mb-4 flex-column align-items-center">
                             <div class="form-group-input v2 mb-5">
-                                <input type="email" id="email" name="email" class="form-control" autocomplete="off"
+                                <input type="email" id="email_address" name="email_address" class="form-control" autocomplete="off"
                                     data-auto-focus="true" required="">
-                                <label for="email" class="input-label">Email Address</label>
+                                <label for="email_address" class="input-label">Email Address</label>
                             </div>
                         </div>
                         <button type="button" class="btn ah-cta-btn previous" style="font-size: 20px;pointer-events: auto;font-weight: 400 !important;font-style: normal !important;font-family: Montserrat !important;color: rgb(255, 255, 255) !important;border-color: rgb(37, 219, 128) !important;border-width: 1px !important;background: rgb(37, 219, 128) !important;border-radius: 36px !important;box-shadow: rgba(0, 0, 0, 0.2) 0px 26px 13px -10px !important;">Back</button>
@@ -828,7 +846,8 @@
 							<label for="phone_number" class="input-label">Phone number</label>
 						</div>
                         <button type="button" class="btn ah-cta-btn previous" style="font-size: 20px;pointer-events: auto;font-weight: 400 !important;font-style: normal !important;font-family: Montserrat !important;color: rgb(255, 255, 255) !important;border-color: rgb(37, 219, 128) !important;border-width: 1px !important;background: rgb(37, 219, 128) !important;border-radius: 36px !important;box-shadow: rgba(0, 0, 0, 0.2) 0px 26px 13px -10px !important;">Back</button>
-                        <button type="button" class="btn ah-cta-btn next" style="font-size: 20px;pointer-events: auto;font-weight: 400 !important;font-style: normal !important;font-family: Montserrat !important;color: rgb(255, 255, 255) !important;border-color: rgb(37, 219, 128) !important;border-width: 1px !important;background: rgb(37, 219, 128) !important;border-radius: 36px !important;box-shadow: rgba(0, 0, 0, 0.2) 0px 26px 13px -10px !important;">Finished</button>
+                        <button type="submit"
+                         class="btn ah-cta-btn next" style="font-size: 20px;pointer-events: auto;font-weight: 400 !important;font-style: normal !important;font-family: Montserrat !important;color: rgb(255, 255, 255) !important;border-color: rgb(37, 219, 128) !important;border-width: 1px !important;background: rgb(37, 219, 128) !important;border-radius: 36px !important;box-shadow: rgba(0, 0, 0, 0.2) 0px 26px 13px -10px !important;">Submit</button>
                     </fieldset>
                     <div class="mb-5">
                         <span style="font-weight:bold;color:rgba(27, 30, 31, 1.00);font-size: 14px;line-height: 1.6;">We keep your information private, safe and secure</span>
@@ -844,9 +863,6 @@
                         <span style="font-size: 12px; font-family: Montserrat; color: rgb(0, 0, 0);">IMPORTANT DISCLOSURES&nbsp;</span>
                         <div><span style="font-size: 12px; font-family: Montserrat; color: rgb(0, 0, 0);">Crush Commercial Loans is a tradename of Rebel Commercial, LLC,&nbsp;</span><span style="color: rgb(44, 130, 201);"><a href="https://www.nmlsconsumeraccess.org/EntityDetails.aspx/COMPANY/1137890" target="_blank" rel="noopener noreferrer"></a></span><span style="font-size: 12px; font-family: Montserrat; color: rgb(44, 130, 201);"><a href="https://www.nmlsconsumeraccess.org/" rel="noopener noreferrer" target="_blank">NMLS #282856</a></span><span style="font-size: 12px; font-family: Montserrat; color: rgb(0, 0, 0);">&nbsp;| This website is for demo purposes only</span></div>
                     </div>
-                    
-                    
-
                 </form>
             </section>
         </main>

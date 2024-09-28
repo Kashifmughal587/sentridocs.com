@@ -22,15 +22,24 @@
                     case "real-estate-lead-generation":
                         $sql = "SELECT * FROM real_estate_lead WHERE company_id = $companyID";
                         break;
-                    // case "va-loan-leads":
-                    //     $sql = "SELECT * FROM va_loan_eligibility WHERE company_id = $companyID";
-                    //     break;
-                    // case "refinance":
-                    //     $sql = "SELECT * FROM mortgage_leads WHERE company_id = $companyID";
-                    //     break;
-                    // case "va-loan-leads":
-                    //     $sql = "SELECT * FROM va_loan_eligibility WHERE company_id = $companyID";
-                    //     break;
+                    case "commercial-loan-leads":
+                        $sql = "SELECT * FROM commercial_loan_leads WHERE company_id = $companyID";
+                        break;
+                    case "fha-loan-leads":
+                        $sql = "SELECT * FROM loan_leads WHERE company_id = $companyID AND form_type = 'fha-loan'";
+                        break;
+                    case "jumbo-loan-leads":
+                        $sql = "SELECT * FROM loan_leads WHERE company_id = $companyID AND form_type = 'jumbo-loan'";
+                        break;
+                    case "dscr":
+                        $sql = "SELECT * FROM dscr WHERE company_id = $companyID";
+                        break;
+                    case "reverse_mortgage":
+                        $sql = "SELECT * FROM reverse_mortage WHERE company_id = $companyID";
+                        break;
+                    case "va-loan-purchase-leads":
+                        $sql = "SELECT * FROM mortage_lead_generation WHERE company_id = $companyID";
+                        break;
                     default:
                         echo '<script>alert("No Record Found!");</script>';
                         echo '<script>window.location.href = "profile.php";</script>';

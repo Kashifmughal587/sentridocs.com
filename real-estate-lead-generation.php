@@ -89,7 +89,7 @@
                         <div class="checkbox-list-holder mb-4 flex-column align-items-center">
                             <div class="form-group question__fields text-center">
                                 <input id="buying_field" class="form-field" required="" type="radio" name="user_needs"
-                                    value="I'm Buying">
+                                    value="I am Buying">
                                 <label for="buying_field" class="checkbox-button v1">
                                     <span class="fake-input border-0"></span>
                                     <span>I'm Buying</span>
@@ -97,7 +97,7 @@
                             </div>
                             <div class="form-group question__fields text-center">
                                 <input id="selling_field" class="form-field" required="" type="radio" name="user_needs"
-                                    value="I'm Selling">
+                                    value="I am Selling">
                                 <label for="selling_field" class="checkbox-button v1">
                                     <span class="fake-input border-0"></span>
                                     <span>I'm Selling</span>
@@ -105,10 +105,10 @@
                             </div>
                             <div class="form-group question__fields text-center">
                                 <input id="buying_selling" class="form-field" required="" type="radio" name="user_needs"
-                                    value="I'm Buying & Selling">
+                                    value="I am Buying & Selling">
                                 <label for="buying_selling" class="checkbox-button v1">
                                     <span class="fake-input border-0"></span>
-                                    <span>I'm Buying & Selling</span>
+                                    <span>I am Buying & Selling</span>
                                 </label>
                             </div>
                         </div>

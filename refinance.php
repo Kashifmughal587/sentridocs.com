@@ -24,12 +24,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lead Generation Form</title>
+    <title>Refinance</title>
     <?php 
         if(!empty($company_details['company_fav'])) {
             echo '<link rel="shortcut icon" href="../'.$company_details['company_fav'].'" type="image/x-icon">"';
         }else{
-            echo '<link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">"';
+            echo '<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">"';
         }
     ?>
     <link rel="shortcut icon" href="'$com'" type="image/x-icon">
@@ -94,7 +94,6 @@
                                 </div>
                             </label>
                         </div>
-                        <button type="button" class="action-button previous_button">Back</button>
                         <button type="button" class="next action-button">Continue</button>
                     </fieldset>
 
@@ -565,21 +564,21 @@
                     </fieldset>
 
                     <fieldset><!-- Page 17 -->
-                    <h2>What's your current street address?</h2>
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <label for="streetAddress">Street Address:</label>
-                            <input id="streetAddress" class="form-control" type="text" name="street_address" placeholder="Enter Your Address">
+                        <h2>What's your current street address?</h2>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <label for="streetAddress">Street Address:</label>
+                                <input id="streetAddress" class="form-control" type="text" name="street_address" placeholder="Enter Your Address">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="unitNumber">Unit#:</label>
+                                <input id="unitNumber" class="form-control" type="text" name="unit" placeholder="Unit#">
+                            </div>
                         </div>
-                        <div class="col-12 col-md-6">
-                            <label for="unitNumber">Unit#:</label>
-                            <input id="unitNumber" class="form-control" type="text" name="unit" placeholder="Unit#">
-                        </div>
-                    </div>
 
-                    <button type="button" class="action-button previous previous_button" style="margin-top: 50px;">Back</button>
-                    <button type="button" class="next action-button">Continue</button>
-                </fieldset>
+                        <button type="button" class="action-button previous previous_button" style="margin-top: 50px;">Back</button>
+                        <button type="button" class="next action-button">Continue</button>
+                    </fieldset>
 
                     <fieldset><!-- Page 18 -->
                         <h2>What Zip code is your home located in?</h2>

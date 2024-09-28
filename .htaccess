@@ -15,10 +15,19 @@ RewriteRule ^([^/]+)/va-loan-leads\.php$ va-loan-leads.php?company_id=$1 [L]
 RewriteRule ^([^/]+)/real-estate-lead-generation\.php$ real-estate-lead-generation.php?company_id=$1 [L]
 
 # Rewrite rule to handle /company_id/loan-officer.php
-RewriteRule ^([^/]+)/commerical-loan-leads\.php$ commerical-loan-leads.php?company_id=$1 [L]
+RewriteRule ^([^/]+)/commercial-loan-leads\.php$ commercial-loan-leads.php?company_id=$1 [L]
 
 # Rewrite rule to handle /company_id/loan-officer.php
 RewriteRule ^([^/]+)/fha-loan-leads\.php$ fha-loan-leads.php?company_id=$1 [L]
 
 # Rewrite rule to handle /company_id/loan-officer.php
 RewriteRule ^([^/]+)/jumbo-loan-leads\.php$ jumbo-loan-leads.php?company_id=$1 [L]
+
+# Rewrite rule to handle /company_id/loan-officer.php
+RewriteRule ^([^/]+)/dscr\.php$ dscr.php?company_id=$1 [L]
+
+# Rewrite rule to handle /company_id/loan-officer.php
+RewriteRule ^([^/]+)/reverse_mortgage\.php$ reverse_mortgage.php?company_id=$1 [L]
+
+# Rewrite rule to handle /company_id/loan-officer.php
+RewriteRule ^([^/]+)/va-loan-purchase-leads\.php$ va-loan-purchase-leads.php?company_id=$1 [L]

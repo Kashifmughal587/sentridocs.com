@@ -24,7 +24,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FHA Loan Leads</title>
+    <?php 
+        if(!empty($company_details['company_fav'])) {
+            echo '<link rel="shortcut icon" href="../'.$company_details['company_fav'].'" type="image/x-icon">"';
+        }else{
+            echo '<link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">"';
+        }
+    ?>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
@@ -48,11 +55,18 @@
     <div>
         <main>
             <section class="funnel-box-section-03">
-                <form class="funnel-box-03" style="text-align: center;">
+                <form class="funnel-box-03" style="text-align: center;" action="../process_form.php" method="POST">
+                    <input type="hidden" name="companyID" value="<?php echo isset($company_details['id']) ? $company_details['id'] : 'sentridocs'; ?>">
+                    <input type="hidden" name="companySlug" value="<?php echo isset($company_details['company_slug']) ? $company_details['company_slug'] : 'sentridocs'; ?>">
+                    <input type="hidden" name="form_type" value="fha_loan">
                     <div class="header__logo-03">
-                        <img class="logo_img"
-                            src="https://images.lp-images1.com/images1/1/17344//logos/17344_309_1_3_76_82_135_8_crushmortgagelogo2.png"
-                            alt="rebel IQ">
+                        <?php 
+                            if(!empty($company_details['company_logo'])) {
+                                echo '<img class="logo_img" src="../'.$company_details['company_logo'].'" alt="Company Logo" style="max-width: 200px;">';
+                            } else {
+                                echo '<img class="logo_img" src="../assets/img/logo-dark.png" alt="Company Logo" style="max-width: 200px;">';
+                            }
+                        ?>
                     </div>
                     <form class="funnel-box-03">
                         <fieldset class="funnel-content-section-03">
@@ -171,7 +185,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn ah-cta-btn previous" style="font-size: 20px; font-weight: 800 !important; font-style: normal !important; font-family: Montserrat !important; color: rgb(255, 255, 255) !important; border-color: rgb(255, 130, 1) !important; border-width: 1px !important; background: rgb(255, 130, 1) !important; border-radius: 7px !important; box-shadow: rgba(0, 0, 0, 0.2) 0px 25px 13px -10px !important; pointer-events: auto;;;">Back</button>
                             <button type="button" class="btn ah-cta-btn next" style="font-size: 20px; font-weight: 800 !important; font-style: normal !important; font-family: Montserrat !important; color: rgb(255, 255, 255) !important; border-color: rgb(255, 130, 1) !important; border-width: 1px !important; background: rgb(255, 130, 1) !important; border-radius: 7px !important; box-shadow: rgba(0, 0, 0, 0.2) 0px 25px 13px -10px !important; pointer-events: auto;;;">Get Started</button>
                         </fieldset>
                         <fieldset class="funnel-content-section-03">
@@ -415,7 +428,7 @@
                                     </label>
                                 </div>
                                 <div class="form-group question__fields text-center">
-                                    <input id="prevent-buy-home-04" class="form-field" required="" type="radio" name="menu_06" value="Haven't Started Saving">
+                                    <input id="prevent-buy-home-04" class="form-field" required="" type="radio" name="menu_06" value="Have not Started Saving">
                                     <label for="prevent-buy-home-04" class="checkbox-button v3">
                                         <span class="fake-input border-0"></span>
                                         <span>Haven't Started Saving</span>
@@ -606,35 +619,35 @@
                             </div>
                             <div class="checkbox-list-holder mb-4">
                                 <div class="form-group question__fields text-center">
-                                    <input id="Employed-status" class="form-field" required="" type="radio" name="menu_12" value="Employed">
+                                    <input id="Employed-status" class="form-field" required="" type="radio" name="menu_08" value="Employed">
                                     <label for="Employed-status" class="checkbox-button v3">
                                         <span class="fake-input border-0"></span>
                                         <span>Employed</span>
                                     </label>
                                 </div>
                                 <div class="form-group question__fields text-center">
-                                    <input id="Employed-status-02" class="form-field" required="" type="radio" name="menu_12" value="Self-Employed / 1099 Independent Contractor">
+                                    <input id="Employed-status-02" class="form-field" required="" type="radio" name="menu_08" value="Self-Employed / 1099 Independent Contractor">
                                     <label for="Employed-status-02" class="checkbox-button v3">
                                         <span class="fake-input border-0"></span>
                                         <span>Self-Employed / 1099 Independent Contractor</span>
                                     </label>
                                 </div>
                                 <div class="form-group question__fields text-center">
-                                    <input id="Employed-status-03" class="form-field" required="" type="radio" name="menu_12" value="Retired">
+                                    <input id="Employed-status-03" class="form-field" required="" type="radio" name="menu_08" value="Retired">
                                     <label for="Employed-status-03" class="checkbox-button v3">
                                         <span class="fake-input border-0"></span>
                                         <span>Retired</span>
                                     </label>
                                 </div>
                                 <div class="form-group question__fields text-center">
-                                    <input id="Employed-status-04" class="form-field" required="" type="radio" name="menu_12" value="Military">
+                                    <input id="Employed-status-04" class="form-field" required="" type="radio" name="menu_08" value="Military">
                                     <label for="Employed-status-04" class="checkbox-button v3">
                                         <span class="fake-input border-0"></span>
                                         <span>Military</span>
                                     </label>
                                 </div>
                                 <div class="form-group question__fields text-center">
-                                    <input id="Employed-status-05" class="form-field" required="" type="radio" name="menu_12" value="Not Employed">
+                                    <input id="Employed-status-05" class="form-field" required="" type="radio" name="menu_08" value="Not Employed">
                                     <label for="Employed-status-05" class="checkbox-button v3">
                                         <span class="fake-input border-0"></span>
                                         <span>Not Employed</span>
@@ -829,9 +842,9 @@
                             </div>
                             <div class="checkbox-list-holder mb-4 flex-column align-items-center">
                                 <div class="form-group-input v3 mb-5">
-                                    <input type="text" id="zipcode_32" name="zipcode_32" class="form-control"
+                                    <input type="text" id="zipcode_curr" name="zipcode_curr" class="form-control"
                                         autocomplete="off" data-auto-focus="true" required="">
-                                    <label for="zipcode_32" class="input-label ">ZIP CODE</label>
+                                    <label for="zipcode_curr" class="input-label ">ZIP CODE</label>
                                 </div>
                             </div>
                             <button type="button" class="btn ah-cta-btn previous" style="font-size: 20px; font-weight: 800 !important; font-style: normal !important; font-family: Montserrat !important; color: rgb(255, 255, 255) !important; border-color: rgb(255, 130, 1) !important; border-width: 1px !important; background: rgb(255, 130, 1) !important; border-radius: 7px !important; box-shadow: rgba(0, 0, 0, 0.2) 0px 25px 13px -10px !important; pointer-events: auto;;;">Back</button>
@@ -874,9 +887,9 @@
                             </div>
                             <div class="checkbox-list-holder mb-4 flex-column align-items-center">
                                 <div class="form-group-input v3 mb-5">
-                                    <input type="email" id="email" name="email" class="form-control" autocomplete="off"
+                                    <input type="email" id="email_address" name="email_address" class="form-control" autocomplete="off"
                                         data-auto-focus="true" required="">
-                                    <label for="email" class="input-label">Email Address</label>
+                                    <label for="email_address" class="input-label">Email Address</label>
                                 </div>
                             </div>
                             <button type="button" class="btn ah-cta-btn previous" style="font-size: 20px; font-weight: 800 !important; font-style: normal !important; font-family: Montserrat !important; color: rgb(255, 255, 255) !important; border-color: rgb(255, 130, 1) !important; border-width: 1px !important; background: rgb(255, 130, 1) !important; border-radius: 7px !important; box-shadow: rgba(0, 0, 0, 0.2) 0px 25px 13px -10px !important; pointer-events: auto;;;">Back</button>
@@ -892,7 +905,7 @@
                                     required="" style="text-align: center;">
                                 <label for="phone_number" class="input-label">Phone number</label>
                             </div>
-                            <button type="button" class="btn ah-cta-btn next" style="font-size: 20px; font-weight: 800 !important; font-style: normal !important; font-family: Montserrat !important; color: rgb(255, 255, 255) !important; border-color: rgb(255, 130, 1) !important; border-width: 1px !important; background: rgb(255, 130, 1) !important; border-radius: 7px !important; box-shadow: rgba(0, 0, 0, 0.2) 0px 25px 13px -10px !important; pointer-events: auto;;;">Get My Result</button>
+                            <button type="submit" class="btn ah-cta-btn next" style="font-size: 20px; font-weight: 800 !important; font-style: normal !important; font-family: Montserrat !important; color: rgb(255, 255, 255) !important; border-color: rgb(255, 130, 1) !important; border-width: 1px !important; background: rgb(255, 130, 1) !important; border-radius: 7px !important; box-shadow: rgba(0, 0, 0, 0.2) 0px 25px 13px -10px !important; pointer-events: auto;;;">Submit</button>
                         </fieldset>
                         <div class="mb-5">
                             <span style="font-weight:bold;color:rgba(27, 30, 31, 1.00);font-size: 14px;line-height: 1.6;">We
